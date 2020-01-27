@@ -66,8 +66,8 @@ Vector3 Matrix3::operator *(Vector3 V1)
 	Vector3 newVector; // Creates A New Matrix
 
 	newVector = { A11 * V1.m_x + A21 * V1.m_y + A31 * V1.m_z,
-		A12 * V1.m_x + A22 * V1.m_y + A32 * V1.m_z,
-		A13 * V1.m_x + A23 * V1.m_y + A33 * V1.m_z };
+				  A12 * V1.m_x + A22 * V1.m_y + A32 * V1.m_z,
+				  A13 * V1.m_x + A23 * V1.m_y + A33 * V1.m_z };
 
 	return newVector; // Returns A Matrix
 }

@@ -236,7 +236,7 @@ void Game::update()
 		for (int index = 0; index < 8; index++)
 		{
 			Vector3 vector;
-			vector.setY(vertex[index].coordinate[0]);
+			vector.setX(vertex[index].coordinate[0]);
 			vector.setY(vertex[index].coordinate[1]);
 			vector.setZ(vertex[index].coordinate[2]);
 
