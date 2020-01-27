@@ -178,7 +178,7 @@ void Game::update()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
 	{
 		Matrix3 rotation;
-		rotation = rotation.RotationX(rotationAngle);
+
 		for (int index = 0; index < 8; index++)
 		{
 			Vector3 vector;
@@ -186,7 +186,7 @@ void Game::update()
 			vector.setY(vertex[index].coordinate[1]);
 			vector.setZ(vertex[index].coordinate[2]);
 
-			vector = rotation * vector;
+			vector = rotation.RotationX(rotationAngle) * vector;
 			vertex[index].coordinate[0] = vector.getX();
 			vertex[index].coordinate[1] = vector.getY();
 			vertex[index].coordinate[2] = vector.getZ();
@@ -196,7 +196,7 @@ void Game::update()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
 	{
 		Matrix3 rotation;
-		rotation = rotation.RotationY(rotationAngle);
+
 		for (int index = 0; index < 8; index++)
 		{
 			Vector3 vector;
@@ -204,7 +204,7 @@ void Game::update()
 			vector.setY(vertex[index].coordinate[1]);
 			vector.setZ(vertex[index].coordinate[2]);
 
-			vector = rotation * vector;
+			vector = rotation.RotationY(rotationAngle) * vector;
 			vertex[index].coordinate[0] = vector.getX();
 			vertex[index].coordinate[1] = vector.getY();
 			vertex[index].coordinate[2] = vector.getZ();
@@ -214,7 +214,7 @@ void Game::update()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
 		Matrix3 rotation;
-		rotation = rotation.RotationZ(rotationAngle);
+
 		for (int index = 0; index < 8; index++)
 		{
 			Vector3 vector;
@@ -222,7 +222,7 @@ void Game::update()
 			vector.setY(vertex[index].coordinate[1]);
 			vector.setZ(vertex[index].coordinate[2]);
 
-			vector = rotation * vector;
+			vector = rotation.RotationZ(rotationAngle) * vector;
 			vertex[index].coordinate[0] = vector.getX();
 			vertex[index].coordinate[1] = vector.getY();
 			vertex[index].coordinate[2] = vector.getZ();
@@ -245,7 +245,82 @@ void Game::update()
 			vertex[index].coordinate[1] = vector.getY();
 			vertex[index].coordinate[2] = vector.getZ();
 		}
+	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		Matrix3 translate;
+
+		for (int index = 0; index < 8; index++)
+		{
+			Vector3 vector;
+			vector.setX(vertex[index].coordinate[0]);
+			vector.setY(vertex[index].coordinate[1]);
+			vector.setZ(vertex[index].coordinate[2]);
+
+			vector.setZ(1);
+			vector = translate.Translate(0, 0.005) * vector;
+			
+			vertex[index].coordinate[0] = vector.getX();
+			vertex[index].coordinate[1] = vector.getY();
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		Matrix3 translate;
+
+		for (int index = 0; index < 8; index++)
+		{
+			Vector3 vector;
+			vector.setX(vertex[index].coordinate[0]);
+			vector.setY(vertex[index].coordinate[1]);
+			vector.setZ(vertex[index].coordinate[2]);
+
+			vector.setZ(1);
+			vector = translate.Translate(0, -0.005) * vector;
+
+			vertex[index].coordinate[0] = vector.getX();
+			vertex[index].coordinate[1] = vector.getY();
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		Matrix3 translate;
+
+		for (int index = 0; index < 8; index++)
+		{
+			Vector3 vector;
+			vector.setX(vertex[index].coordinate[0]);
+			vector.setY(vertex[index].coordinate[1]);
+			vector.setZ(vertex[index].coordinate[2]);
+
+			vector.setZ(1);
+			vector = translate.Translate(-0.005, 0) * vector;
+
+			vertex[index].coordinate[0] = vector.getX();
+			vertex[index].coordinate[1] = vector.getY();
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		Matrix3 translate;
+
+		for (int index = 0; index < 8; index++)
+		{
+			Vector3 vector;
+			vector.setX(vertex[index].coordinate[0]);
+			vector.setY(vertex[index].coordinate[1]);
+			vector.setZ(vertex[index].coordinate[2]);
+
+			vector.setZ(1);
+			vector = translate.Translate(0.005, 0) * vector;
+
+			vertex[index].coordinate[0] = vector.getX();
+			vertex[index].coordinate[1] = vector.getY();
+		}
 	}
 
 	cout << "Update up" << endl;

@@ -33,7 +33,7 @@ public:
 
 	static Matrix3 RotationZ(float _angle);
 
-	static Matrix3 Scale3D(float dx);
+	static Matrix3 Scale3D(double dx);
 
 	Matrix3 operator*(double x);
 

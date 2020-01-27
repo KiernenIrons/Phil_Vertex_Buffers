@@ -288,7 +288,7 @@ Matrix3 Matrix3::RotationZ(float _angle)
 	return answer;
 }
 
-Matrix3 Matrix3::Scale3D(float dx)
+Matrix3 Matrix3::Scale3D(double dx)
 {
 	Matrix3 answer = Matrix3{};
 	answer.A11 = (double)dx / 100;
