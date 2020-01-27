@@ -19,7 +19,7 @@ public:
 	Matrix3 Inverse(Matrix3 M1);
 	Matrix3 Rotation(int _angle);
 	static Matrix3 Translate(float dx, float dy);
-	static Matrix3 Scale(int dx, int dy);
+	static Matrix3 Scale(float dx, float dy);
 	Vector3 operator*(Vector3 V1);
 	Matrix3 Transpose(Matrix3 M1);
 

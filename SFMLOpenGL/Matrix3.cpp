@@ -221,7 +221,7 @@ Matrix3 Matrix3::Translate(float dx, float dy)
 }
 
 
-Matrix3 Matrix3::Scale(int dx, int dy)
+Matrix3 Matrix3::Scale(float dx, float dy)
 {
 	Matrix3 answer = Matrix3{};
 	answer.A11 = (double)dx / 100;
