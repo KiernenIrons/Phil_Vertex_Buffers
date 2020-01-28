@@ -229,7 +229,7 @@ void Game::update()
 		}
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Dash))
 	{
 		Matrix3 scale;
 
@@ -241,6 +241,24 @@ void Game::update()
 			vector.setZ(vertex[index].coordinate[2]);
 
 			vector = scale.Scale3D(99.9) * vector;
+			vertex[index].coordinate[0] = vector.getX();
+			vertex[index].coordinate[1] = vector.getY();
+			vertex[index].coordinate[2] = vector.getZ();
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Equal))
+	{
+		Matrix3 scale;
+
+		for (int index = 0; index < 8; index++)
+		{
+			Vector3 vector;
+			vector.setX(vertex[index].coordinate[0]);
+			vector.setY(vertex[index].coordinate[1]);
+			vector.setZ(vertex[index].coordinate[2]);
+
+			vector = scale.Scale3D(100.1) * vector;
 			vertex[index].coordinate[0] = vector.getX();
 			vertex[index].coordinate[1] = vector.getY();
 			vertex[index].coordinate[2] = vector.getZ();
